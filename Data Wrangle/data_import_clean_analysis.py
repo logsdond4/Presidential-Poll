@@ -11,17 +11,20 @@ and calculates the overall candidate lead percentage.
 
 """
 
-## Package Import
+##%% Package Import
 import pandas as pd
 import os
+import numpy as np
+import math
+import statistics
 
-## Import Data
+#%% Import Data
 root = os.path.dirname(os.path.dirname(__file__)) #root folder
 src = root + '\\src' #source folder
 file = src + '\\president_polls.csv' #input file
 df=pd.read_csv(file)
 
-## Functions
+#%% Functions
 # This function cleans the dataset (e.g., removing NA values, data conversion)
 def df_clean(df): 
     df['end_date'] = pd.to_datetime(df['end_date'])
@@ -41,19 +44,22 @@ def df_calc(df):
     pct = sum(df.weight_pct)
     return pct
 
-## Data Clean
+#%%Data Clean
 df = df_clean(df)
 
-## Trump Percentage
+#%% Trump Percentage
 df_trump = df_filter(df, 'Trump', '2020-09-08', '2020-10-08')
 trump_percent = df_calc(df_trump)
 
-## Biden Percentage
+#%% Biden Percentage
 df_biden = df_filter(df, 'Biden', '2020-09-08', '2020-10-08')
 biden_percent = df_calc(df_biden)
 
-## Biden Lead
+#%% Biden Lead
 lead=biden_percent-trump_percent
+
+
+
 
 
 
