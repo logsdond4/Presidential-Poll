@@ -48,11 +48,11 @@ def df_calc(df):
 df = df_clean(df)
 
 #%% Trump Percentage
-df_trump = df_filter(df, 'Trump', '2020-09-08', '2020-10-08')
+df_trump = df_filter(df, 'Trump', '2020-09-13', '2020-10-13')
 trump_percent = df_calc(df_trump)
 
 #%% Biden Percentage
-df_biden = df_filter(df, 'Biden', '2020-09-08', '2020-10-08')
+df_biden = df_filter(df, 'Biden', '2020-09-13', '2020-10-13')
 biden_percent = df_calc(df_biden)
 
 #%% Biden Lead
